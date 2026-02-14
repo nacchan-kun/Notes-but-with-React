@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notes That Decide For You - Cyberpunk Edition</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Notes That Decide For You</h1>
+        <p class="subtitle">
+          Stop overthinking. Answer 4 questions and let your priorities guide
+          you.
+        </p>
+      </header>
+
+      <div class="progress-bar">
+        <div class="progress-step active" data-step="1">
+          <div class="progress-step-circle">1</div>
+          <div class="progress-step-label">Decision</div>
+        </div>
+        <div class="progress-step" data-step="2">
+          <div class="progress-step-circle">2</div>
+          <div class="progress-step-label">Pros & Cons</div>
+        </div>
+        <div class="progress-step" data-step="3">
+          <div class="progress-step-circle">3</div>
+          <div class="progress-step-label">Questions</div>
+        </div>
+        <div class="progress-step" data-step="4">
+          <div class="progress-step-circle">4</div>
+          <div class="progress-step-label">Result</div>
+        </div>
+      </div>
+
+      <!-- Step 1: Decision Input -->
+      <section id="step-1" class="section active">
+        <div class="card">
+          <h2>What are you deciding?</h2>
+          <p class="description">
+            Enter a name for your decision and the options you're considering.
+          </p>
+
+          <div class="form-group">
+            <label for="decision-name">Decision Name</label>
+            <input
+              type="text"
+              id="decision-name"
+              placeholder="e.g., Where should I live? Which car to buy? Career change?"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="option1">Option 1</label>
+            <input type="text" id="option1" placeholder="e.g., Option A" />
+          </div>
+
+          <div class="form-group">
+            <label for="option2">Option 2</label>
+            <input type="text" id="option2" placeholder="e.g., Option B" />
+          </div>
+
+          <div id="additional-options"></div>
+
+          <button class="btn-secondary btn-small" onclick="addOption()">
+            + Add Another Option
+          </button>
+
+          <div class="button-group">
+            <button class="btn-primary" onclick="goToStep2()">
+              Continue to Pros & Cons →
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Step 2: Pros and Cons -->
+      <section id="step-2" class="section">
+        <div class="card">
+          <h2>List Pros & Cons</h2>
+          <p class="description">
+            Add the advantages and disadvantages for each option.
+          </p>
+
+          <div id="options-container" class="options-grid"></div>
+
+          <div class="button-group">
+            <button class="btn-secondary" onclick="goToStep(1)">← Back</button>
+            <button class="btn-primary" onclick="goToStep3()">
+              Continue to Questions →
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Step 3: Priority Questions -->
+      <section id="step-3" class="section">
+        <div class="card">
+          <h2>What matters most to you?</h2>
+          <p class="description">
+            Answer these 4 questions to help us understand your priorities.
+          </p>
+
+          <div class="question-card">
+            <h3>Question 1: What's most important to you?</h3>
+            <div class="radio-group" id="q1-options">
+              <label class="radio-option">
+                <input
+                  type="radio"
+                  name="q1"
+                  value="growth"
+                  onchange="updateRadioSelection(this)"
+                />
+                <span
+                  ><strong>Growth & Opportunity</strong> - Development,
+                  learning, new experiences</span
+                >
+              </label>
+              <label class="radio-option">
+                <input
+                  type="radio"
+                  name="q1"
+                  value="stability"
+                  onchange="updateRadioSelection(this)"
+                />
+                <span
+                  ><strong>Stability & Security</strong> - Predictability,
+                  safety, and comfort</span
+                >
+              </label>
+              <label class="radio-option">
+                <input
+                  type="radio"
+                  name="q1"
+                  value="lifestyle"
+                  onchange="updateRadioSelection(this)"
+                />
+                <span
+                  ><strong>Lifestyle & Freedom</strong> - Flexibility, time, and
+                  personal fulfillment</span
+                >
+              </label>
+              <label class="radio-option">
+                <input
+                  type="radio"
+                  name="q1"
+                  value="financial"
+                  onchange="updateRadioSelection(this)"
+                />
+                <span
+                  ><strong>Financial Value</strong> - Cost, savings, and
+                  monetary benefits</span
+                >
+              </label>
+              <label class="radio-option">
+                <input
+                  type="radio"
+                  name="q1"
+                  value="relationships"
+                  onchange="updateRadioSelection(this)"
+                />
+                <span
+                  ><strong>Relationships & Community</strong> - People,
+                  connections, and belonging</span
+                >
+              </label>
+              <label class="radio-option">
+                <input
+                  type="radio"
+                  name="q1"
+                  value="impact"
+                  onchange="updateRadioSelection(this)"
+                />
+                <span
+                  ><strong>Impact & Purpose</strong> - Meaning, contribution,
+                  and legacy</span
+                >
+              </label>
+            </div>
+          </div>
+
+          <div class="question-card">
+            <h3>Question 2: How do you feel about change and uncertainty?</h3>
+            <div class="radio-group" id="q2-options">
+              <label class="radio-option">
+                <input
+                  type="radio"
+                  name="q2"
+                  value="low"
+                  onchange="updateRadioSelection(this)"
+                />
+                <span
+                  ><strong>Prefer Safety</strong> - I like familiar,
+                  tried-and-tested choices</span
+                >
+              </label>
+              <label class="radio-option">
+                <input
+                  type="radio"
+                  name="q2"
+                  value="medium"
+                  onchange="updateRadioSelection(this)"
+                />
+                <span
+                  ><strong>Balanced Approach</strong> - Some change is good, but
+                  not too drastic</span
+                >
+              </label>
+              <label class="radio-option">
+                <input
+                  type="radio"
+                  name="q2"
+                  value="high"
+                  onchange="updateRadioSelection(this)"
+                />
+                <span
+                  ><strong>Embrace Change</strong> - I'm excited by new
+                  possibilities and adventure</span
+                >
+              </label>
+            </div>
+          </div>
+
+          <div class="question-card">
+            <h3>Question 3: What's your decision-making style?</h3>
+            <div class="radio-group" id="q3-options">
+              <label class="radio-option">
+                <input
+                  type="radio"
+                  name="q3"
+                  value="practical"
+                  onchange="updateRadioSelection(this)"
+                />
+                <span
+                  ><strong>Practical & Logical</strong> - I focus on facts,
+                  data, and concrete benefits</span
+                >
+              </label>
+              <label class="radio-option">
+                <input
+                  type="radio"
+                  name="q3"
+                  value="intuitive"
+                  onchange="updateRadioSelection(this)"
+                />
+                <span
+                  ><strong>Intuitive & Emotional</strong> - I trust my gut
+                  feelings and emotional response</span
+                >
+              </label>
+              <label class="radio-option">
+                <input
+                  type="radio"
+                  name="q3"
+                  value="balanced"
+                  onchange="updateRadioSelection(this)"
+                />
+                <span
+                  ><strong>Balanced & Holistic</strong> - I consider both logic
+                  and feelings equally</span
+                >
+              </label>
+            </div>
+          </div>
+
+          <div class="question-card">
+            <h3>Question 4: What timeline are you thinking about?</h3>
+            <div class="radio-group" id="q4-options">
+              <label class="radio-option">
+                <input
+                  type="radio"
+                  name="q4"
+                  value="immediate"
+                  onchange="updateRadioSelection(this)"
+                />
+                <span
+                  ><strong>Immediate Future</strong> - What happens in the next
+                  few months</span
+                >
+              </label>
+              <label class="radio-option">
+                <input
+                  type="radio"
+                  name="q4"
+                  value="medium"
+                  onchange="updateRadioSelection(this)"
+                />
+                <span
+                  ><strong>Medium-term</strong> - Impact over the next 1-3
+                  years</span
+                >
+              </label>
+              <label class="radio-option">
+                <input
+                  type="radio"
+                  name="q4"
+                  value="longterm"
+                  onchange="updateRadioSelection(this)"
+                />
+                <span
+                  ><strong>Long-term Future</strong> - Where I'll be 5+ years
+                  from now</span
+                >
+              </label>
+            </div>
+          </div>
+
+          <div class="button-group">
+            <button class="btn-secondary" onclick="goToStep(2)">← Back</button>
+            <button class="btn-primary" onclick="calculateAndShowResult()">
+              See My Decision →
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Step 4: Result -->
+      <section id="step-4" class="section">
+        <div class="card">
+          <div class="result-card">
+            <h3>Based on your priorities, we recommend:</h3>
+            <div class="winner" id="winner-name"></div>
+            <p id="winner-subtitle"></p>
+          </div>
+
+          <div class="explanation">
+            <h4>Why this choice?</h4>
+            <div id="explanation-text"></div>
+
+            <h4 style="margin-top: 24px">Score Breakdown</h4>
+            <div class="score-comparison" id="score-comparison"></div>
+          </div>
+
+          <div class="button-group">
+            <button class="btn-secondary" onclick="startOver()">
+              Start New Decision
+            </button>
+            <button class="btn-primary" onclick="goToStep(1)">
+              Edit Decision
+            </button>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
