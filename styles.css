@@ -911,10 +911,6 @@ button {
     margin-top: 24px;
   }
 
-  button {
-    width: 100%;
-  }
-
   .options-grid {
     grid-template-columns: 1fr;
     gap: 16px;
