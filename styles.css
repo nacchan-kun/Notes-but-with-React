@@ -486,6 +486,11 @@ button {
   box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
 }
 
+.add-item-btn:active {
+  background: rgba(0, 240, 255, 0.1);
+  transform: scale(0.98);
+}
+
 .question-card {
   background: rgba(10, 10, 15, 0.4);
   border: 2px solid #404060;
@@ -735,6 +740,16 @@ button {
 
   .add-item-btn {
     min-height: 44px;
+    border-color: #00f0ff;
+    color: #00f0ff;
+    background: rgba(0, 240, 255, 0.08);
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: rgba(0, 240, 255, 0.3);
+  }
+
+  .add-item-btn:hover {
+    border-color: #00f0ff;
+    color: #00f0ff;
   }
 
   /* Disable hover effects on touch devices */
@@ -913,6 +928,21 @@ button {
     font-size: 1.1rem;
   }
 
+  .add-item-btn {
+    border-color: #00f0ff;
+    color: #00f0ff;
+    background: rgba(0, 240, 255, 0.05);
+    padding: 14px;
+    font-size: 1rem;
+    font-weight: 600;
+    min-height: 48px;
+    touch-action: manipulation;
+  }
+
+  .pros-cons {
+    margin-bottom: 24px;
+  }
+
   .question-card {
     padding: 20px;
     margin-bottom: 20px;
@@ -1028,6 +1058,12 @@ button {
 
   .option-card {
     padding: 16px;
+  }
+
+  .add-item-btn {
+    padding: 16px;
+    font-size: 1rem;
+    font-weight: 700;
   }
 
   .list-item {
