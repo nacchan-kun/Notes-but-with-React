@@ -900,9 +900,9 @@ button {
   }
 
   button {
-    padding: 12px 20px;
-    font-size: 0.95rem;
-    letter-spacing: 1.5px;
+    padding: 10px 16px;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
   }
 
   .button-group {
@@ -932,10 +932,10 @@ button {
     border-color: #00f0ff;
     color: #00f0ff;
     background: rgba(0, 240, 255, 0.05);
-    padding: 14px;
-    font-size: 1rem;
+    padding: 10px;
+    font-size: 0.9rem;
     font-weight: 600;
-    min-height: 48px;
+    min-height: 44px;
     touch-action: manipulation;
   }
 
@@ -1052,8 +1052,8 @@ button {
   }
 
   button {
-    padding: 10px 16px;
-    font-size: 0.9rem;
+    padding: 8px 14px;
+    font-size: 0.85rem;
   }
 
   .option-card {
@@ -1061,9 +1061,9 @@ button {
   }
 
   .add-item-btn {
-    padding: 16px;
-    font-size: 1rem;
-    font-weight: 700;
+    padding: 12px;
+    font-size: 0.9rem;
+    font-weight: 600;
   }
 
   .list-item {
